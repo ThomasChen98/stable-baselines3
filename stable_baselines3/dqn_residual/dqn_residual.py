@@ -123,6 +123,8 @@ class ResidualSoftDQN(DQN_ME):
         self.epsilon = epsilon
         self.sample_length = sample_length
         self.ignore_prior = ignore_prior
+        if policy_kwargs is None:
+            policy_kwargs = {}
         policy_kwargs['ignore_prior'] = ignore_prior
         super().__init__(
             policy,

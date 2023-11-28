@@ -724,12 +724,24 @@ class BaseAlgorithm(ABC):
             if "env" in data:
                 env = data["env"]
 
-        model = cls(
-            policy=data["policy_class"],
-            env=env,
-            device=device,
-            _init_setup_model=False,  # type: ignore[call-arg]
-        )
+        from stable_baselines3.dqn_residual.policies import ResidualSoftCnnPolicy, ResidualSoftMlpPolicy, ResidualSoftMultiInputPolicy
+        ResidualPolicies = [ResidualSoftCnnPolicy, ResidualSoftMlpPolicy, ResidualSoftMultiInputPolicy]
+        if (data["policy_class"] in ResidualPolicies):
+            model = cls(
+                policy=data["policy_class"],
+                prior_model_path = data["prior_model_path"],
+                ignore_prior = data["ignore_prior"],
+                env=env,
+                device=device,
+                _init_setup_model=False,  # type: ignore[call-arg]
+            )
+        else:
+            model = cls(
+                policy=data["policy_class"],
+                env=env,
+                device=device,
+                _init_setup_model=False,  # type: ignore[call-arg]
+            )
 
         # load parameters
         model.__dict__.update(data)
