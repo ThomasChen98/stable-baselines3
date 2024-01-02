@@ -13,8 +13,8 @@ from stable_baselines3.common.torch_layers import (
     create_mlp,
 )
 from stable_baselines3.common.type_aliases import PyTorchObs, Schedule
-from stable_baselines3.dqn_me.dqn_me import DQN_ME
-from stable_baselines3.dqn_me.policies import QNetwork, DQNPolicy, CnnPolicy, MultiInputPolicy
+from stable_baselines3.dqn_ME.dqn_ME import DQN_ME
+from stable_baselines3.dqn_ME.policies_ME import QNetwork, DQNPolicy, CnnPolicy, MultiInputPolicy
 
 
 class ResidualSoftQNetwork(QNetwork):

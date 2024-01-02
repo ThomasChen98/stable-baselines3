@@ -17,7 +17,7 @@ from stable_baselines3.common.policies import BasePolicy
 from stable_baselines3.common.type_aliases import GymEnv, MaybeCallback, Schedule
 from stable_baselines3.common.utils import get_linear_fn, get_parameters_by_name, polyak_update
 from stable_baselines3.dqn_residual.policies import ResidualSoftDQNPolicy, ResidualSoftMlpPolicy, ResidualSoftCnnPolicy, ResidualSoftMultiInputPolicy, ResidualSoftQNetwork
-from stable_baselines3.dqn_me.dqn_me import DQN_ME
+from stable_baselines3.dqn_ME.dqn_ME import DQN_ME
 
 SelfResidualSoftDQN = TypeVar("SelfResidualSoftDQN", bound="ResidualSoftDQN")
 
